@@ -29,10 +29,42 @@
                 </select><br></br>
                 <input type="submit" value="Reservar">
             </form>
-            <div id="reservationReminder"></div>
         </main>
     </div>
     <?php include 'common/footer.php' ?>
+    <?php include 'con_db.php';
+    if (isset($_POST['reservar'])) {
+        if (
+            strlen($_POST['name']) >= 1 &&
+            strlen($_POST['date']) >= 1 &&
+            strlen($_POST['time']) >= 1 &&
+            strlen($_POST['people']) >= 1 &&
+            strlen($_POST['sede']) >= 1
+        ) {
+            $name = trim($_POST['name']);
+            $date = trim($_POST['date']);
+            $time = $_POST['time'];
+            $people = $_POST['people'];
+            $sede = $_POST['sede'];
+
+            $stmt = mysqli_prepare($con, "INSERT INTO reserva (id, nombreCliente, fecha, hora, cantPersonas, sede) VALUES (?, ?, ?, ?, ?, ?)");
+            mysqli_stmt_bind_param($stmt, 'ssssss', $name, $date, $time, $time, $people, $sede);
+            mysqli_stmt_execute($stmt);
+            if (mysqli_stmt_affected_rows($stmt) > 0) {
+                echo "¡Te has registrado correctamente!";
+            } else {
+                echo "¡Ups! Ha ocurrido un error. " . mysqli_error($con);
+            }
+            mysqli_stmt_close($stmt);
+            mysqli_close($con);
+        } else {
+            ?>
+            <h3 class="bad"></h3>Por favor complete los campos.</h3>
+            <?php
+        }
+    }
+    ?>
+
 </body>
 
 </html>

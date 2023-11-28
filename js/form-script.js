@@ -40,14 +40,5 @@ document
         "<br>Número de personas: " +
         getCookie("people")
     );
-    document.getElementById("reservationReminder").textContent =
-      "Reserva realizada para " +
-      getCookie("name") +
-      " el " +
-      getCookie("date") +
-      " a las " +
-      getCookie("time") +
-      " para " +
-      getCookie("people") +
-      " personas.";
+    
   });
