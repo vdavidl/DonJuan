@@ -1,0 +1,196 @@
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+header {
+  background-color: #ffffff;
+  text-align: center;
+  padding: 0px;
+  margin-bottom: 0;
+}
+
+header img {
+  max-width: 15%;
+  height: auto;
+  display: block;
+  margin: 1% auto 0 auto;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 15px 0 0;
+  padding: 0;
+}
+
+header nav ul li {
+  margin: 0 10px;
+  font-family: "Comic Sans";
+  border-right: 1px solid #000;
+  padding-right: 10px;
+}
+header nav ul li last-child {
+  border-right: none;
+}
+
+header nav ul li a {
+  color: #000;
+  text-decoration: none;
+}
+.barra {
+  border: none;
+  height: 10px;
+  width: 100%;
+  background-color: #084d6e;
+  margin: 0px;
+  margin-top: 10px;
+  padding: 0;
+}
+main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  background-image: url(../img/inicio_fondo.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.logo-izquierda,
+.texto-centro,
+.logo-derecha {
+  flex: 1;
+  text-align: center;
+}
+
+.logo-izquierda img,
+.logo-derecha img {
+  max-width: 100%;
+  height: auto;
+}
+
+.texto-centro h1 {
+  font-family: "Teddy Bear";
+  color: white;
+  font-size: 50px;
+}
+.texto-centro p {
+  font-size: 18px;
+  color: #fff;
+}
+
+/* Promotions */
+h2 {
+  text-align: center;
+}
+.carousel-container {
+  width: 800px;
+  margin: 60px auto;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+  border-radius: 5%;
+}
+
+.carousel-slide {
+  display: flex;
+  transition: transform 0.8s ease;
+  width: 500%;
+}
+
+.carousel-slide img {
+  width: 20%;
+  height: auto;
+}
+
+/* Footer */
+.footer {
+  text-decoration: none;
+  margin: 60px auto;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.35s all;
+}
+
+.links-social {
+  margin: 15px auto;
+}
+
+.contact {
+  margin: 15px auto;
+}
+
+.links-footer {
+  margin: 15px auto;
+}
+
+/**Reserva**/
+.reservationForm {
+  width: 300px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-top: 20px;
+  color: white;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+input[type="submit"] {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 20px;
+}
+
+/*Carta*/
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.grid-item {
+  border: 1px solid #ccc;
+  padding: 20px;
+  text-align: center;
+}
+
+/*Quienes Somos*/
+
+.Conteiner img {
+  max-width: 200px;
+  width: 200px;
+  height: 200px;
+  margin: 0 5px;
+  left: 20px;
+  top: 20px;
+}
+.Historia {
+  background-color: #ff8c00;
+  text-align: right;
+  font-size: 20px;
+  line-height: 30px;
+  position: relative;
+  padding-left: 60px;
+}
+.Mision {
+  background-color: #ff8c00;
+  text-align: left;
+}

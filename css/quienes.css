@@ -1,0 +1,12 @@
+.col {
+  margin: auto;
+  padding: 2rem 0;
+}
+
+.col img {
+  width: 7rem;
+}
+
+.quienes-somos-container {
+  width: 80%;
+}
