@@ -24,7 +24,7 @@ function getCookie(cname) {
 document
   .querySelector(".reservationForm")
   .addEventListener("submit", function (event) {
-    event.preventDefault();
+    // event.preventDefault();
     setCookie("name", document.getElementById("name").value, 7);
     setCookie("date", document.getElementById("date").value, 7);
     setCookie("time", document.getElementById("time").value, 7);
@@ -40,5 +40,4 @@ document
         "<br>Número de personas: " +
         getCookie("people")
     );
-    
   });

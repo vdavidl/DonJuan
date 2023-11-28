@@ -12,7 +12,7 @@
     <?php include 'common/header.php' ?>
     <div id="mainContainer" class="container d-flex flex-grow-1 justify-content-center align-items-center">
         <main>
-            <form class="reservationForm">
+            <form class="reservationForm" method="post">
                 <label for="name">Nombre:</label><br>
                 <input type="text" id="name" name="name" autocomplete="name"><br>
                 <label for="date">Fecha:</label><br>
@@ -27,6 +27,7 @@
                     <option value="La Plazuela">La Plazuela</option>
                     <option value="La Libertad">La Libertad</option>
                 </select><br></br>
+                <input type="hidden" name="reservar" value="1">
                 <input type="submit" value="Reservar">
             </form>
         </main>
@@ -47,16 +48,18 @@
             $people = $_POST['people'];
             $sede = $_POST['sede'];
 
-            $stmt = mysqli_prepare($con, "INSERT INTO reserva (id, nombreCliente, fecha, hora, cantPersonas, sede) VALUES (?, ?, ?, ?, ?, ?)");
-            mysqli_stmt_bind_param($stmt, 'ssssss', $name, $date, $time, $time, $people, $sede);
-            mysqli_stmt_execute($stmt);
-            if (mysqli_stmt_affected_rows($stmt) > 0) {
-                echo "¡Te has registrado correctamente!";
-            } else {
-                echo "¡Ups! Ha ocurrido un error. " . mysqli_error($con);
+            try {
+                $stmt = $conn->prepare("INSERT INTO reserva (nombreCliente, fecha, hora, cantPersonas, sede) VALUES (?, ?, ?, ?, ?)");
+                $stmt->execute([$name, $date, $time, $people, $sede]);
+
+                if ($stmt->rowCount() > 0) {
+                    echo "¡Te has registrado correctamente!";
+                } else {
+                    echo "¡Ups! Ha ocurrido un error.";
+                }
+            } catch (PDOException $e) {
+                echo "Error: " . $e->getMessage();
             }
-            mysqli_stmt_close($stmt);
-            mysqli_close($con);
         } else {
             ?>
             <h3 class="bad"></h3>Por favor complete los campos.</h3>
